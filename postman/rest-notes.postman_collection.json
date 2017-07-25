@@ -1,0 +1,83 @@
+{
+	"id": "7eb31563-daad-a4d7-3421-a311c9c51b37",
+	"name": "rest-notes",
+	"description": "",
+	"order": [
+		"feefe72c-d160-c6b9-2937-628b85be9582",
+		"3cd394aa-2a5a-356f-ce5d-098eaf6c45a8"
+	],
+	"folders": [],
+	"timestamp": 1500985277265,
+	"owner": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "3cd394aa-2a5a-356f-ce5d-098eaf6c45a8",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/rest/notes",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "7eb31563-daad-a4d7-3421-a311c9c51b37",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://localhost:8080/rest/notes",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1500985277265,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n        \"name\": \"aaaaaaaaaaaa\",\n        \"address\": \"bbbbbbbbbbbbbbb\"\n    }"
+		},
+		{
+			"id": "feefe72c-d160-c6b9-2937-628b85be9582",
+			"headers": "authorization: sdfdsfdsfdsfdsfsasdasdasd\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "authorization",
+					"value": "sdfdsfdsfdsfdsfsasdasdasd",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/rest/notes/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "7eb31563-daad-a4d7-3421-a311c9c51b37",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://localhost:8080/rest/notes/",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1500985262840,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n  \"size\" : 10000,\r\n  \"post_filter\" : {\r\n    \"bool\" : {\r\n      \"must\" : [\r\n        {\r\n          \"terms\" : {\r\n            \"version_id\" : [\r\n              1\r\n            ],\r\n            \"boost\" : 1.0\r\n          }\r\n        }\r\n      ],\r\n      \"disable_coord\" : false,\r\n      \"adjust_pure_negative\" : true,\r\n      \"boost\" : 1.0\r\n    }\r\n  },\r\n  \"docvalue_fields\" : [\r\n    \"version_id\"\r\n  ]\r\n}"
+		}
+	]
+}

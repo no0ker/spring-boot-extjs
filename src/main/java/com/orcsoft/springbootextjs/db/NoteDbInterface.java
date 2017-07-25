@@ -2,9 +2,10 @@ package com.orcsoft.springbootextjs.db;
 
 import java.util.Collection;
 
-import com.orcsoft.springbootextjs.controller.Note;
+import com.orcsoft.springbootextjs.entity.Note;
 
 public interface NoteDbInterface {
-    Note getNoteById(Long id);
+    Long createNote(Note newNote);
     Collection<Note> getAllNotes();
+    Note getNoteById(Long id);
 }

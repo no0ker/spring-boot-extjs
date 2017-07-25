@@ -1,28 +1,38 @@
 package com.orcsoft.springbootextjs.controller;
 
-import java.util.Collections;
-import java.util.List;
+import java.util.Collection;
 
 import com.orcsoft.springbootextjs.db.NoteDbInterface;
+import com.orcsoft.springbootextjs.entity.ErrorCode;
+import com.orcsoft.springbootextjs.entity.Message;
+import com.orcsoft.springbootextjs.entity.Note;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/rest/notes")
 public class MainRestController {
     @Autowired
-    NoteDbInterface dbMockService;
+    private NoteDbInterface dbMockService;
 
-    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
-    List<Note> getAllNotes() {
-        return Collections.singletonList(new Note("testName", "testAddress"));
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public Collection<Note> getAllNotes() {
+        return dbMockService.getAllNotes();
+    }
+
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    public Message create(@RequestBody Note newNote){
+
+        Long id = dbMockService.createNote(newNote);
+        if(id != null){
+            return new Message(ErrorCode.DB_CREATE_OK, id);
+        } else {
+            return new Message(ErrorCode.DB_CREATE_FAILED, newNote.toString());
+        }
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    Note getNodeById(@PathVariable Long id) {
+    public Note getNodeById(@PathVariable Long id) {
         return dbMockService.getNoteById(id);
     }
 }
